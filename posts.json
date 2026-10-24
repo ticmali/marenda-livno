@@ -1,13 +1,13 @@
 {
-  "updated": "2026-10-24T17:43:36.587Z",
+  "updated": "2026-10-24T17:48:15.969Z",
   "posts": {
     "metropolis2": {
       "url": "https://www.facebook.com/Metropolis2Livno/posts/pfbid0zHNjcZYA4amUFq3h9L7kEFjRwGfFHVaidBTwdWUgAQ1GrUEmnt11V4GCDngN1Cbzl",
       "time": "2026-10-24T06:36:27.000Z"
     },
     "ptcforum": {
-      "url": "https://www.facebook.com/ptcforum/posts/pfbid02uEuhZMpSchoQZv9ncEZPWkcqnbAVwwPS41DpoSEvia4oERGJUQTcks6wx54SETHRl",
-      "time": "2026-10-24T07:27:52.000Z"
+      "url": "https://www.facebook.com/ptcforum/posts/pfbid02gG1pWAgASLTuGLsyFdb8Lhv9j7i3ezEsSUPUG9VDt9WzCAByAa3DJTPabVScAYBgl",
+      "time": "2026-10-24T07:23:25.000Z"
     },
     "bonappetit": {
       "url": "https://www.facebook.com/bonappetitlivno/posts/pfbid02czKLa8hdrdPCTnQmceYS9vmcdQjJjKAV7JHSQHDEAqj5fSt4D7XNDWsfmPw4GEhxl",
@@ -20,6 +20,10 @@
     "ivanovic": {
       "url": "https://www.facebook.com/restoranpizzeriaivanovic/posts/pfbid02hz3xb3epfSZHwHrbvsPfC9yMEURqYwWPUms9ZbdfX9ebqGrv3tfcgrr6CUmho6Sfl",
       "time": "2026-10-24T06:05:55.000Z"
+    },
+    "novitas": {
+      "url": "https://www.facebook.com/HotelNovitas/posts/pfbid01SRxgzCqg4cNUZPi27Dqu7qvoyP9iavZRLTujnZSzekV6QJiEKZQT5UXM3GydqrUl",
+      "time": "2026-10-23T06:29:47.000Z"
     }
   }
 }
