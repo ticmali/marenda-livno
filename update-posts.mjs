@@ -7,6 +7,9 @@ const STRANICE = {
   metropolis2: 'https://www.facebook.com/Metropolis2Livno/',
   ptcforum:    'https://www.facebook.com/ptcforum/',
   bonappetit:  'https://www.facebook.com/bonappetitlivno/',
+  panorama:    'https://www.facebook.com/restoranpizzeriapanorama/',
+  ivanovic:    'https://www.facebook.com/restoranpizzeriaivanovic/',
+  pivnica:     'https://www.facebook.com/pivnica.livno/',
 };
 
 const token = process.env.APIFY_TOKEN;
