@@ -1,8 +1,17 @@
 {
-  "updated": "2026-10-24T16:00:00Z",
+  "updated": "2026-10-24T17:35:00.150Z",
   "posts": {
-    "metropolis2": { "url": "https://www.facebook.com/Metropolis2Livno/posts/pfbid0zHNjcZYA4amUFq3h9L7kEFjRwGfFHVaidBTwdWUgAQ1GrUEmnt11V4GCDngN1Cbzl" },
-    "ptcforum": { "url": "https://www.facebook.com/ptcforum/posts/pfbid02uEuhZMpSchoQZv9ncEZPWkcqnbAVwwPS41DpoSEvia4oERGJUQTcks6wx54SETHRl" },
-    "bonappetit": { "url": "https://www.facebook.com/bonappetitlivno/posts/pfbid02czKLa8hdrdPCTnQmceYS9vmcdQjJjKAV7JHSQHDEAqj5fSt4D7XNDWsfmPw4GEhxl" }
+    "metropolis2": {
+      "url": "https://www.facebook.com/Metropolis2Livno/posts/pfbid0zHNjcZYA4amUFq3h9L7kEFjRwGfFHVaidBTwdWUgAQ1GrUEmnt11V4GCDngN1Cbzl",
+      "time": "2026-10-24T06:36:27.000Z"
+    },
+    "ptcforum": {
+      "url": "https://www.facebook.com/ptcforum/posts/pfbid02uEuhZMpSchoQZv9ncEZPWkcqnbAVwwPS41DpoSEvia4oERGJUQTcks6wx54SETHRl",
+      "time": "2026-10-24T07:27:52.000Z"
+    },
+    "bonappetit": {
+      "url": "https://www.facebook.com/bonappetitlivno/posts/pfbid02czKLa8hdrdPCTnQmceYS9vmcdQjJjKAV7JHSQHDEAqj5fSt4D7XNDWsfmPw4GEhxl",
+      "time": "2026-10-24T06:48:10.000Z"
+    }
   }
 }
