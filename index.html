@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marenda Livno · Dnevna ponuda</title>
+<meta name="description" content="Dnevna ponuda jela livanjskih restorana na jednom mjestu – zadnje objave s Facebooka i Instagrama.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f1e8; --bg-2:#efe5d6; --card:#fffaf3; --ink:#221a14; --muted:#7a6b5d; --line:#e4d7c5;
+    --accent:#e2522f; --accent-2:#f2a541; --fb:#1877f2; --ig1:#f58529; --ig2:#dd2a7b; --ig3:#8134af;
+    --ok:#2e9e6a;
+    --shadow:0 1px 2px rgba(60,40,20,.06),0 12px 32px -12px rgba(60,40,20,.18);
+    --radius:22px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14110e; --bg-2:#1c1814; --card:#1f1a16; --ink:#f5ece0; --muted:#a8998a;
+      --line:#2f2822; --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:Inter,system-ui,sans-serif; color:var(--ink); min-height:100vh; -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1200px 500px at 85% -10%, color-mix(in srgb,var(--accent-2) 22%,transparent), transparent 60%),
+      radial-gradient(900px 400px at -10% 10%, color-mix(in srgb,var(--accent) 14%,transparent), transparent 60%),
+      var(--bg);
+  }
+  a{color:inherit}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+
+  .top{position:sticky;top:0;z-index:10;backdrop-filter:saturate(1.4) blur(14px);
+    background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px;color:#fff;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 16px -6px var(--accent)}
+  .brand b{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;letter-spacing:-.02em}
+  .brand span{color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);
+    padding:10px 16px;border-radius:999px;font:600 14px Inter,sans-serif;cursor:pointer;transition:transform .15s,border-color .15s}
+  .btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+  .btn svg{width:16px;height:16px}
+  .btn.spin svg{animation:spin .8s linear}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .hero{padding:56px 0 28px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;color:var(--accent);
+    background:color-mix(in srgb,var(--accent) 12%,transparent);padding:6px 12px;border-radius:999px;text-transform:capitalize}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}100%{box-shadow:0 0 0 10px transparent}}
+  h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(36px,6vw,72px);
+    line-height:.98;margin:18px 0 14px;max-width:14ch}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:56ch;line-height:1.55;margin:0}
+
+  .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:34px 0 22px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;font:600 14px Inter,sans-serif;cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .updated{color:var(--muted);font-size:13px}
+
+  .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));padding-bottom:40px;align-items:start}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    overflow:hidden;display:flex;flex-direction:column;animation:rise .5s both;min-width:0}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+  .card[hidden]{display:none}
+  .head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .avatar{width:44px;height:44px;border-radius:14px;flex:none;display:grid;place-items:center;font:800 18px "Bricolage Grotesque",sans-serif;color:#fff}
+  .meta{min-width:0;flex:1}
+  .meta h3{margin:0;font:700 17px "Bricolage Grotesque",sans-serif;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .meta p{margin:2px 0 0;color:var(--muted);font-size:13px;display:flex;align-items:center;gap:6px}
+  .fresh{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok)}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;color:#fff;flex:none;text-decoration:none}
+  .badge svg{width:13px;height:13px}
+  .badge.fb{background:var(--fb)}
+  .badge.ig{background:linear-gradient(45deg,var(--ig1),var(--ig2),var(--ig3))}
+
+  .embed{position:relative;background:#fff;display:flex;justify-content:center}
+  .embed iframe{border:0;display:block;width:100%;max-width:500px;background:#fff;position:relative;z-index:1}
+  .skeleton{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--bg-2)}
+  .sk{border-radius:12px;background:linear-gradient(90deg,var(--line),color-mix(in srgb,var(--line) 40%,var(--card)),var(--line));background-size:200% 100%;animation:sh 1.3s infinite}
+  @keyframes sh{to{background-position:-200% 0}}
+  .embed.loaded .skeleton{display:none}
+
+  .empty{padding:40px 24px;text-align:center;color:var(--muted);background:var(--bg-2);width:100%}
+  .empty b{display:block;color:var(--ink);font:700 18px "Bricolage Grotesque",sans-serif;margin-bottom:6px}
+
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+  .foot a{font-weight:600;color:var(--accent);text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+
+  footer.site{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:13px;line-height:1.6}
+  @media (max-width:520px){ .top .btn .lbl{display:none} .hero{padding-top:36px} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><div class="logo">🍽️</div><b>Marenda<span>.</span>Livno</b></a>
+    <button class="btn" id="refresh" title="Osvježi objave">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+      <span class="lbl">Osvježi</span>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow"><span class="dot"></span><span id="today">Danas</span></span>
+    <h1>Što se danas <em>kuha</em> u Livnu?</h1>
+    <p class="lead">Dnevne ponude i marende livanjskih restorana na jednom mjestu. Prikazuje se najnovija objava sa svake Facebook stranice i zadnje objave s Instagrama.</p>
+  </section>
+
+  <div class="bar">
+    <div class="chips" role="group" aria-label="Filter">
+      <button class="chip" data-filter="all" aria-pressed="true">Sve</button>
+      <button class="chip" data-filter="facebook" aria-pressed="false">Facebook</button>
+      <button class="chip" data-filter="instagram" aria-pressed="false">Instagram</button>
+    </div>
+    <span class="updated" id="updated"></span>
+  </div>
+
+  <section class="grid" id="grid"></section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    Sadržaj objava pripada restoranima i prikazuje se putem službenih Facebook / Instagram ugradnji.
+    Ako se objave ne učitavaju, provjeri da preglednik ili ad-blocker ne blokira sadržaj trećih strana.
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   POSTAVKE
+   - id: kratka oznaka (mora se poklapati s ključem u posts.json)
+   - post: rezervni link na objavu, koristi se ako posts.json ne postoji
+           (npr. kad stranicu otvoriš direktno s diska)
+   Najnovije objave automatski se upisuju u posts.json
+   (skripta scripts/update-posts.mjs, pokreće je GitHub Actions svako jutro).
+   ========================================================= */
+const RESTORANI = [
+  { id: "metropolis2", name: "Metropolis 2", type: "facebook", url: "https://www.facebook.com/Metropolis2Livno/", color: "#e2522f",
+    post: "https://www.facebook.com/Metropolis2Livno/posts/pfbid0zHNjcZYA4amUFq3h9L7kEFjRwGfFHVaidBTwdWUgAQ1GrUEmnt11V4GCDngN1Cbzl" },
+  { id: "ptcforum", name: "PTC Forum", type: "facebook", url: "https://www.facebook.com/ptcforum/", color: "#2f7de2",
+    post: "https://www.facebook.com/ptcforum/posts/pfbid02uEuhZMpSchoQZv9ncEZPWkcqnbAVwwPS41DpoSEvia4oERGJUQTcks6wx54SETHRl" },
+  { id: "bonappetit", name: "Bon Appétit", type: "facebook", url: "https://www.facebook.com/bonappetitlivno/", color: "#2e9e6a",
+    post: "https://www.facebook.com/bonappetitlivno/posts/pfbid02czKLa8hdrdPCTnQmceYS9vmcdQjJjKAV7JHSQHDEAqj5fSt4D7XNDWsfmPw4GEhxl" },
+  { id: "pastelli", name: "Pastelli Food & Drinks", type: "instagram", user: "pastelli_food_drinks", color: "#c13584", post: "" },
+];
+
+const AUTO_OSVJEZAVANJE_MIN = 30;  // 0 = isključeno
+const VISINA_FB = 600;
+const VISINA_IG = 620;
+
+/* ========================================================= */
+
+let POSTS = {};   // iz posts.json: { id: { url, time } }
+
+const icons = {
+  facebook: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8h3.3z"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'
+};
+const grid = document.getElementById('grid');
+
+const initials = n => n.replace(/[^A-Za-zČĆŽŠĐčćžšđ0-9 ]/g,'').split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+const profileUrl = r => r.type === 'facebook' ? r.url : `https://www.instagram.com/${r.user}/`;
+const latestPost = r => (POSTS[r.id] && POSTS[r.id].url) || r.post || '';
+
+function timeAgo(iso){
+  if (!iso) return '';
+  const min = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (min < 60) return `prije ${Math.max(1,min)} min`;
+  const h = Math.round(min/60);
+  if (h < 24) return `prije ${h} h`;
+  const d = Math.round(h/24);
+  return d === 1 ? 'jučer' : `prije ${d} dana`;
+}
+const isToday = iso => iso && new Date(iso).toDateString() === new Date().toDateString();
+
+function embedSrc(r, width){
+  const t = Date.now();
+  const post = latestPost(r);
+  if (r.type === 'facebook'){
+    if (!post) return '';
+    const w = Math.max(350, Math.min(500, Math.floor(width)));
+    return 'https://www.facebook.com/plugins/post.php?' + new URLSearchParams({
+      href: post.split('?')[0], show_text: 'true', width: w, locale: 'hr_HR'
+    }) + `&_=${t}`;
+  }
+  if (post) return `${post.split('?')[0].replace(/\/$/,'')}/embed/captioned/?_=${t}`;
+  return `https://www.instagram.com/${r.user}/embed/?_=${t}`;
+}
+
+function subline(r){
+  const p = POSTS[r.id];
+  if (p && p.time) return `${isToday(p.time) ? '<span class="fresh" title="Objavljeno danas"></span>' : ''}Objavljeno ${timeAgo(p.time)}`;
+  return r.type === 'facebook'
+    ? 'facebook.com/' + r.url.replace(/^https?:\/\/(www\.)?facebook\.com\//,'').replace(/\/.*$/,'')
+    : '@' + r.user;
+}
+
+function cardHTML(r, i){
+  return `
+  <article class="card" data-type="${r.type}" style="animation-delay:${i*70}ms">
+    <div class="head">
+      <div class="avatar" style="background:${r.color}">${initials(r.name)}</div>
+      <div class="meta"><h3>${r.name}</h3><p>${subline(r)}</p></div>
+      <a class="badge ${r.type === 'facebook' ? 'fb' : 'ig'}" href="${profileUrl(r)}" target="_blank" rel="noopener">${icons[r.type]} ${r.type === 'facebook' ? 'Facebook' : 'Instagram'}</a>
+    </div>
+    <div class="embed" data-i="${i}"></div>
+    <div class="foot">
+      <span>${r.type === 'facebook' ? 'Najnovija objava' : (r.post ? 'Izdvojena objava' : 'Zadnje objave s profila')}</span>
+      <a href="${latestPost(r) || profileUrl(r)}" target="_blank" rel="noopener">Otvori ${r.type === 'facebook' && latestPost(r) ? 'objavu' : 'stranicu'} →</a>
+    </div>
+  </article>`;
+}
+
+function mountEmbed(box){
+  const r = RESTORANI[+box.dataset.i];
+  const src = embedSrc(r, box.clientWidth || 500);
+  box.dataset.w = box.clientWidth;
+  if (!src){
+    box.innerHTML = `<div class="empty"><b>Nema objave za prikaz</b>Pogledaj ponudu direktno na <a href="${profileUrl(r)}" target="_blank" rel="noopener">stranici restorana</a>.</div>`;
+    return;
+  }
+  const h = r.type === 'facebook' ? VISINA_FB : VISINA_IG;
+  box.classList.remove('loaded');
+  box.style.minHeight = h + 'px';
+  box.innerHTML = `<div class="skeleton"><div class="sk" style="height:46px;width:70%"></div><div class="sk" style="height:300px"></div><div class="sk" style="height:16px;width:90%"></div><div class="sk" style="height:16px;width:60%"></div></div>`;
+  const f = document.createElement('iframe');
+  f.loading = 'lazy';
+  f.title = `Objava – ${r.name}`;
+  f.allow = 'encrypted-media; clipboard-write; picture-in-picture';
+  f.allowFullscreen = true;
+  f.style.height = h + 'px';
+  f.addEventListener('load', () => box.classList.add('loaded'));
+  f.src = src;
+  box.appendChild(f);
+}
+
+async function loadPosts(){
+  try {
+    const res = await fetch(`posts.json?_=${Date.now()}`, { cache: 'no-store' });
+    if (res.ok) POSTS = (await res.json()).posts || {};
+  } catch (e) { /* npr. otvoreno s diska (file://) – koriste se rezervni linkovi iz postavki */ }
+}
+
+async function render(){
+  await loadPosts();
+  grid.innerHTML = RESTORANI.map(cardHTML).join('');
+  grid.querySelectorAll('.embed').forEach(mountEmbed);
+  applyFilter();
+  stamp();
+}
+
+function stamp(){
+  const t = new Date().toLocaleTimeString('hr-HR',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('updated').textContent = `Osvježeno u ${t}`;
+}
+
+document.getElementById('today').textContent =
+  new Date().toLocaleDateString('hr-HR',{weekday:'long',day:'numeric',month:'long'});
+
+let filter = 'all';
+function applyFilter(){
+  grid.querySelectorAll('.card').forEach(c => c.hidden = !(filter === 'all' || c.dataset.type === filter));
+}
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+  document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === c));
+  filter = c.dataset.filter; applyFilter();
+}));
+
+const btn = document.getElementById('refresh');
+btn.addEventListener('click', () => { btn.classList.remove('spin'); void btn.offsetWidth; btn.classList.add('spin'); render(); });
+
+let rt;
+window.addEventListener('resize', () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => {
+    grid.querySelectorAll('.embed').forEach(box => {
+      const r = RESTORANI[+box.dataset.i];
+      if (r.type === 'facebook' && Math.abs(box.clientWidth - (+box.dataset.w || 0)) > 40) mountEmbed(box);
+    });
+  }, 300);
+});
+
+if (AUTO_OSVJEZAVANJE_MIN > 0) setInterval(render, AUTO_OSVJEZAVANJE_MIN * 60 * 1000);
+render();
+</script>
+</body>
+</html>
